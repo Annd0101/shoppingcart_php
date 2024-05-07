@@ -1,4 +1,4 @@
-<?php include 'connect.php'; ?>
+<?php include 'connect.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +12,53 @@
 </head>
 <body>
     <?php include('header.php') ?>
-    <h1>View Products</h1>
+    <div class="container">
+        <section class="display_product">
+            <table>
+
+                <tbody>
+                    <?php $display_product = mysqli_query($conn, 'Select * from `products`');
+                    if(mysqli_num_rows($display_product) > 0) {
+                        // fetch data
+                        echo "                <thead>
+                    <th>SL No</th>
+                    <th>Product Image</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Action</th>
+                </thead>";
+                        $num = 1;
+                        while($row = mysqli_fetch_assoc($display_product)) {
+                            $product_id = $row['id'];
+                            $product_name = $row['name'];
+                            $product_price = $row['price'];
+                            $product_image = $row['image'];
+                            
+                        ?>
+                        
+                    <tr>
+                        <td><?php echo $num ?></td>
+                        <td><img src="images/<?php echo $product_image ?>" alt="<?php echo $product_name ?>"></td>
+                        <td> <?php echo $product_name ?></td>
+                        <td> <?php echo $product_price ?></td>
+                        <td>
+                            <a href="delete.php?deletee=<?php echo $product_id ?>" onclick=" return confirm('Are you sure to delete this product');" class="delete_product_btn"><i class="fas fa-trash"></i></a>
+                            <a href="" class="update_product_btn"><i class="fas fa-edit"></i></a>
+                        </td>
+
+                     </tr>
+                        <?php
+                        $num++;
+                            };
+                        
+                    } else {
+                        echo "<div class='empty_text'>No Products Available</div>";
+                    }
+                    ?>
+
+                </tbody>
+            </table>
+        </section>
+    </div>
 </body>
 </html>
