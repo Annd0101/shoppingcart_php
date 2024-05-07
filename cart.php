@@ -13,50 +13,47 @@
 <body>
     <?php include('header.php') ?>
     <div class="container">
-        <section class="display_product">
+        <section class="shopping_cart">
+            <h1 class="heading">My Cart</h1>
             <table>
-
-                <tbody>
-                    <?php $display_product = mysqli_query($conn, 'Select * from `products`');
-                    if(mysqli_num_rows($display_product) > 0) {
-                        // fetch data
-                        echo "                <thead>
-                    <th>SL No</th>
-                    <th>Product Image</th>
+                <thead>
+                    <th>Sl No</th>
                     <th>Product Name</th>
+                    <th>Product Image</th>
                     <th>Product Price</th>
+                    <th>Product Quantity</th>
+                    <th>Total Price</th>
                     <th>Action</th>
-                </thead>";
-                        $num = 1;
-                        while($row = mysqli_fetch_assoc($display_product)) {
-                            $product_id = $row['id'];
-                            $product_name = $row['name'];
-                            $product_price = $row['price'];
-                            $product_image = $row['image'];
-                            
-                        ?>
-                        
-                    <tr>
-                        <td><?php echo $num ?></td>
-                        <td><img src="images/<?php echo $product_image ?>" alt="<?php echo $product_name ?>"></td>
-                        <td> <?php echo $product_name ?></td>
-                        <td> <?php echo $product_price ?></td>
-                        <td>
-                            <a href="delete.php?deletee=<?php echo $product_id ?>" onclick=" return confirm('Are you sure to delete this product');" class="delete_product_btn"><i class="fas fa-trash"></i></a>
-                            <a href="update.php?edit=<?php echo $product_id ?>" class="update_product_btn"><i class="fas fa-edit"></i></a>
-                        </td>
-
-                     </tr>
-                        <?php
-                        $num++;
-                            };
-                        
-                    } else {
-                        echo "<div class='empty_text'>No Products Available</div>";
-                    }
-                    ?>
-
+                </thead>
+                <tbody>
+                    <td>1</td>
+                    <td>Laptop</td>
+                    <td>
+                        <img src="images/images.jpg" alt="">
+                    </td>
+                    <td>25000/-</td>
+                    <td>
+                        <div class="quantity_box">
+                            <input type="number" min="1">
+                            <input type="submit" class="update_quantity">
+                        </div>
+                    </td>
+                    <td>25000/-</td>
+                    <td>
+                        <a href="">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
                 </tbody>
+                <!-- bottom area -->
+                <div class="table_bottom">
+                    <a href="shop_products.php" class="bottom_btn">Continue Shopping</a>
+                    <h3 class="bottom_btn">Grand total: <span>25000/-</span></h3>
+                    <a href="checkout.php" class="bottom_btn">Proceed to checkout</a>
+                </div>
+                <a href="" class="delete_all_btn">
+                    <i class="fas fa-trash"></i>Delete all
+                </a>
             </table>
         </section>
     </div>
