@@ -7,7 +7,6 @@ if(isset($_GET['deletee'])){
         header('location:view_products.php');
     } else {
         echo "Product not deleted";
-        header('location:view_products.php');
     }
 }
 ?>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Products-Project</title>
+    <title>Cart Page</title>
      <!-- css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- font awesome -->
