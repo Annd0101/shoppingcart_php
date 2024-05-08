@@ -11,6 +11,6 @@
      $select_product = mysqli_query($conn, "Select * from `cart`") or die("Query failed");
      $nums_products = mysqli_num_rows($select_product);
      ?>
-    <a href="" class="cart"><i class="fa-solid fa-cart-shopping"></i><span><sup><?php echo $nums_products ?></sup></span></a>
+    <a href="cart.php" class="cart"><i class="fa-solid fa-cart-shopping"></i><span><sup><?php echo $nums_products ?></sup></span></a>
     </div>
 </header>

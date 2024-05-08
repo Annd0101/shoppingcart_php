@@ -40,7 +40,7 @@
                         <td><?php echo $num ?></td>
                         <td><img src="images/<?php echo $product_image ?>" alt="<?php echo $product_name ?>"></td>
                         <td> <?php echo $product_name ?></td>
-                        <td> <?php echo $product_price ?></td>
+                        <td>$<?php echo $product_price ?></td>
                         <td>
                             <a href="delete.php?deletee=<?php echo $product_id ?>" onclick=" return confirm('Are you sure to delete this product');" class="delete_product_btn"><i class="fas fa-trash"></i></a>
                             <a href="update.php?edit=<?php echo $product_id ?>" class="update_product_btn"><i class="fas fa-edit"></i></a>
